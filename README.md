@@ -1,6 +1,6 @@
 # Spatially-Constrained-CCC
 
-> Does physical distance matter when two cells "talk" to each other? This project builds a computational pipeline to find out — quantitatively — using real spatial transcriptomics data from a mouse brain tissue section.
+> Does physical distance matter when two cells "talk" to each other? This project builds a computational pipeline to find out quantitatively using real spatial transcriptomics data from a mouse brain tissue section.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue.svg?style=flat-square&logo=python&logoColor=white)
 ![Scanpy](https://img.shields.io/badge/Scanpy-1.12-orange.svg?style=flat-square)
