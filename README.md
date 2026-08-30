@@ -83,17 +83,15 @@ The interactions that *do* survive are concentrated around genes like `App`, `Ap
 
 **1. Spatial domain clustering** — unsupervised Leiden clusters overlaid on the original H&E tissue image, showing the tissue naturally separating into anatomically distinct regions (visible cortical layering and hippocampal structure):
 
-`assets/tissue_clusters_overlay.png`
+![Tissue clusters overlay](assets/tissue_clusters_overlay.png)
 
-**2. Interactive spatial map** — the same clustering, as a zoomable/hoverable Plotly HTML export:
+**2. Spatially-validated interactions** — dot plot of the top ligand-receptor pairs that survived the physical-adjacency significance filter, faceted by source cluster:
 
-`assets/interactive_clusters.html`
+![Spatial CCC dot plot](assets/spatial_ccc_border_dotplot.png)
 
-**3. Spatially-validated interactions** — dot plot of the top ligand-receptor pairs that survived the physical-adjacency significance filter, faceted by source cluster:
+**3. Interactive spatial map** — the same clustering, as a zoomable/hoverable Plotly export. GitHub can't render interactive HTML inline, so view it directly: **[Open interactive_clusters.html](assets/interactive_clusters.html)** (click "Download" or "raw" on that page, then open the downloaded file in your browser — GitHub shows HTML as raw text, not live, but the file itself is fully interactive locally).
 
-`assets/spatial_ccc_border_dotplot.png`
-
-*(Place the three files from your `outputs/` folder into an `assets/` folder in the repo root, and these will render directly on GitHub.)*
+> Tip: if you want it viewable live in-browser without downloading, you can host it via [GitHub Pages](https://pages.github.com/) (enable Pages on this repo, pointed at the `assets/` folder) or link through [htmlpreview.github.io](https://htmlpreview.github.io/) using your raw file URL.
 
 ---
 
