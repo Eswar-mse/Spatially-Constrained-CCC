@@ -77,6 +77,8 @@ Running the full pipeline on the mouse brain Visium dataset:
 
 In plain terms: of every 100 cell-cell communication events predicted by the standard non-spatial method, roughly **89 of them** involve cell populations that aren't even physically near each other on the real tissue. Only about 11% hold up once you check whether the signaling cells are actually close enough to plausibly interact.
 
+*(Important nuance: this "false-positive" framing assumes short-range, local signaling — see [Limitations](#-limitations--honest-caveats) for why a small number of these could in principle be genuine longer-range signals rather than true false positives.)*
+
 The interactions that *do* survive are concentrated around genes like `App`, `Aplp1/2`, `Psap`, `Apoe`, and their receptors (`Sort1`, `Lrp1`, `Gpr37`) — a signaling network associated with lipid transport and neuronal maintenance, which is expected and biologically sensible for brain tissue, and a good sanity check that the pipeline isn't just filtering randomly.
 
 ### Visuals
@@ -195,6 +197,7 @@ This is an exploratory, single-sample project — worth being upfront about what
 - **Cluster identities are unannotated.** Clusters are numbered (0–11), not biologically labeled (e.g., "cortical layer IV", "hippocampus") — that would need marker-gene-based annotation against a reference atlas.
 - **Correlational, not mechanistic.** Spatial adjacency plus co-expression is still an *inference*, not direct evidence of an active signaling event — it narrows the plausible candidate set, it doesn't prove interaction.
 - **z > 1.96 is a standard but simplifying threshold.** It doesn't correct for multiple comparisons across all cluster pairs tested; a stricter analysis would apply an FDR correction.
+- **This pipeline assumes all ligand-receptor signaling is local-range.** Cell-cell communication isn't a single mechanism — it spans a spectrum: **juxtacrine** signaling requires direct membrane contact, **paracrine** signaling diffuses over roughly tens to a few hundred microns, and **endocrine** signaling (hormones) can act system-wide via the bloodstream, no physical proximity required at all. This project's core assumption — that a valid interaction requires physical adjacency — only holds for the juxtacrine/paracrine range. The ligand-receptor database used here (`liana`'s `mouseconsensus` resource) is curated primarily from local-signaling literature, so this assumption is reasonable for most entries, but not guaranteed for all of them (e.g., lipid-transport ligands like APOE can act somewhat more diffusely than typical paracrine signals). In other words: a small fraction of the "false positives" this pipeline discards on spatial grounds could, in principle, be true long-range signals that our adjacency-based test isn't designed to detect. This pipeline is best read as testing *local* signaling plausibility specifically, not all cell-cell communication in general.
 
 ---
 
