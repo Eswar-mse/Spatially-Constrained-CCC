@@ -1,0 +1,12 @@
+# Spatial Omics Pipeline — pinned working environment
+# Verified working combination as of Aug 2026.
+# Requires Python >=3.10,<3.14 (liana 1.9.0's supported range).
+
+anndata==0.13.2
+geopandas==1.1.4
+liana==1.9.0
+numpy==2.5.2
+pandas==2.3.3
+scanpy==1.12.3
+squidpy==1.8.3
+plotly>=5.0

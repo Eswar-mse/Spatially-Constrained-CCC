@@ -1,0 +1,17 @@
+# Virtual environments
+spatial_env/
+spatial_env312/
+venv/
+*.venv/
+
+# Generated data (large, regenerate via scripts/)
+data/
+old_data/
+old_outputs/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS junk
+.DS_Store
