@@ -13,5 +13,12 @@ old_outputs/
 __pycache__/
 *.pyc
 
+# Local analysis exports
+outputs/*.csv
+outputs/*.json
+
+# Local Sites publishing checkout; public site source is kept in docs/
+portfolio-site/
+
 # OS junk
 .DS_Store

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a24">
+  <meta name="description" content="An interactive case study in spatially constrained cell communication using mouse brain Visium data.">
+  <title>Spatially Constrained CCC — Eswar MSE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✳</span> Spatially Constrained CCC</a>
+    <nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#method">Method</a><a href="#caveats">Limits</a><a class="nav-cta" href="https://github.com/Eswar-mse/Spatially-Constrained-CCC">View code</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">SPATIAL TRANSCRIPTOMICS · MOUSE BRAIN</p>
+        <h1>Do predicted cell conversations happen <em>close enough?</em></h1>
+        <p class="lead">Gene expression can suggest which cells communicate. Tissue position adds a second question: are the predicted partners actually neighbors?</p>
+        <div class="hero-actions"><a class="button primary" href="#explore">Explore the analysis</a><a class="button secondary" href="https://github.com/Eswar-mse/Spatially-Constrained-CCC">Read the code</a></div>
+        <p class="hero-note">An exploratory, single slide analysis by Eswar MSE</p>
+      </div>
+      <div class="hero-image"><img src="assets/tissue_clusters_overlay.png" alt="Mouse brain tissue image overlaid with colored spatial clusters"><span class="image-label">LEIDEN CLUSTERS ON TISSUE</span></div>
+    </section>
+    <section class="summary" aria-label="Analysis summary">
+      <div><strong>7,659</strong><span>expression based candidates</span></div>
+      <div><strong>876</strong><span>retained by the adjacency screen</span></div>
+      <div><strong>11.4%</strong><span>retention in the reported run</span></div>
+      <p>These are counts from the original exploratory run. The screen tests cluster neighborhood enrichment; it does not measure a biological false positive rate.</p>
+    </section>
+    <section class="section explore" id="explore">
+      <div class="section-intro"><p class="eyebrow">EXPLORE THE EVIDENCE</p><h2>From tissue map to candidate interactions</h2><p>Move around the tissue map, then compare it with the interaction plot. The map shows transcriptomic clusters, not identified cell types.</p></div>
+      <div class="tabs" role="tablist" aria-label="Explore figures"><button class="tab active" id="map-tab" type="button" role="tab" aria-selected="true" aria-controls="map-panel">Interactive tissue map</button><button class="tab" id="hits-tab" type="button" role="tab" aria-selected="false" aria-controls="hits-panel">Retained interactions</button></div>
+      <div class="figure-frame" id="map-panel" role="tabpanel" aria-labelledby="map-tab"><iframe title="Interactive spatial cluster map" loading="lazy" src="assets/interactive_clusters.html"></iframe><p class="caption">Hover for cluster labels. Scroll or drag inside the plot to zoom and pan. <a href="assets/interactive_clusters.html" target="_blank" rel="noopener noreferrer">Open full screen</a></p></div>
+      <div class="figure-frame" id="hits-panel" role="tabpanel" aria-labelledby="hits-tab" hidden><img src="assets/spatial_ccc_border_dotplot.png" alt="Dot plot of the top retained ligand receptor pairs across cluster pairs"><p class="caption">Top ranked cross cluster ligand–receptor candidates after the adjacency screen. <a href="assets/spatial_ccc_border_dotplot.png" target="_blank" rel="noopener noreferrer">Open image</a></p></div>
+    </section>
+    <section class="section method" id="method"><div class="section-intro"><p class="eyebrow">HOW IT WORKS</p><h2>A spatial check on expression based predictions</h2></div><div class="steps"><article><span>01</span><h3>Prepare the tissue</h3><p>Load a 10x Visium mouse brain section, filter low quality spots and genes, then normalize expression.</p></article><article><span>02</span><h3>Find domains</h3><p>Cluster expression profiles with Leiden and build a spatial neighbor graph from spot coordinates.</p></article><article><span>03</span><h3>Score communication</h3><p>Use LIANA+ to rank ligand–receptor candidates across cluster pairs without spatial information.</p></article><article><span>04</span><h3>Apply the screen</h3><p>Retain candidates whose source and target clusters have neighborhood enrichment z &gt; 1.96 in this exploratory analysis.</p></article></div></section>
+    <section class="section caveats" id="caveats"><div><p class="eyebrow">INTERPRETATION</p><h2>What the result can tell us</h2><p>The adjacency screen prioritizes candidate interactions between spatially associated domains. It gives a more focused shortlist for follow up experiments.</p></div><div class="caveat-card"><h3>What it cannot establish</h3><ul><li>One slide offers no biological replication.</li><li>Visium spots can contain more than one cell; clusters are not annotated cell types.</li><li>Neighborhood enrichment is computed for cluster pairs, not for each ligand–receptor pair.</li><li>Nearby expression does not prove signaling, and distant signaling can be biologically real.</li><li>The reported z threshold does not correct for multiple comparisons.</li></ul></div></section>
+    <section class="closing"><p class="eyebrow">PROJECT REPOSITORY</p><h2>Explore the pipeline and reproduce the analysis.</h2><a class="button primary" href="https://github.com/Eswar-mse/Spatially-Constrained-CCC">View on GitHub</a></section>
+  </main>
+  <footer><span>Spatially Constrained CCC · Eswar MSE</span><span>Mouse brain Visium · Exploratory case study</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

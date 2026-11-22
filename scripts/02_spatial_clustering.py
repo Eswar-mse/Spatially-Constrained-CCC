@@ -44,7 +44,7 @@ fig = px.scatter(
     x='X', 
     y='Y', 
     color='Cluster',
-    title='Interactive Spatial Domains of Breast Cancer Tissue',
+    title='Interactive Spatial Domains of Mouse Brain Tissue',
     color_discrete_sequence=px.colors.qualitative.Bold,
     template='plotly_dark'
 )
