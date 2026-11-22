@@ -2,7 +2,9 @@
 
 An exploratory analysis of ligand–receptor candidates in a **10x Visium mouse brain sagittal section**. The pipeline compares expression based candidates with the spatial neighborhood enrichment of their source and target clusters.
 
-**[Explore the interactive case study](https://spatial-ccc-eswar.archeddegu7.chatgpt.site)** · [View the interactive tissue map](assets/interactive_clusters.html)
+**[Explore the interactive case study](https://eswar-mse.github.io/Spatially-Constrained-CCC/)** · [Open the interactive tissue map](https://eswar-mse.github.io/Spatially-Constrained-CCC/assets/interactive_clusters.html)
+
+GitHub's file viewer displays HTML source rather than running the plot. Use the hosted links above to interact with it.
 
 ![Mouse brain tissue with Leiden clusters](assets/tissue_clusters_overlay.png)
 
@@ -21,7 +23,7 @@ These figures are from the original run and have not been independently reproduc
 3. `scripts/03_ccc_analysis.py` uses LIANA+ rank aggregation with the `mouseconsensus` resource, selects candidates with `magnitude_rank <= 0.05`, computes neighborhood enrichment with 1,000 permutations and seed 42, and applies the cluster pair z score screen. It writes full and retained candidate tables, an adjacency matrix, a JSON summary, and a dot plot.
 4. `scripts/04_regenerate_tissue_plot.py` renders clusters on the tissue image.
 
-The interactive case study source is in [`docs/`](docs/), ready for static hosting from the repository. Its assets are independent of the compute pipeline.
+The interactive case study source is in [`docs/`](docs/) and is published through GitHub Pages. Its assets are independent of the compute pipeline.
 
 ## Run locally
 
