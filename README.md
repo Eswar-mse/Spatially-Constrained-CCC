@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="spatially_constrained_ccc_banner" width="100%" />
+  <img src="spatially_constrained_ccc_banner.gif" width="100%" />
 </div>
 
 <div align="center">
