@@ -59,11 +59,10 @@ Can tissue position help prioritize cell communication candidates inferred from 
 </div>
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#262626','primaryTextColor':'#e6e6e6','primaryBorderColor':'#6b6b6b','lineColor':'#9a9a9a','fontFamily':'Segoe UI, sans-serif'}}}%%
 flowchart LR
-    A[LIANA+ candidates<br/>magnitude rank ≤ 0.05<br/>7,659] --> B{Source and target clusters<br/>neighborhood enrichment<br/>z > 1.96?}
-    B -->|yes| C[Retained<br/>876]
-    B -->|no| D[Excluded<br/>6,783]
+    A["LIANA+ candidates<br/>magnitude rank ≤ 0.05<br/>7,659"] --> B{"Source and target clusters<br/>neighborhood enrichment<br/>z > 1.96?"}
+    B -->|yes| C["Retained<br/>876"]
+    B -->|no| D["Excluded<br/>6,783"]
 ```
 
 > **Read this carefully.** These figures are from the original run and have not been independently reproduced as part of the portfolio update. An excluded candidate is **not a proven false positive**. Neighborhood enrichment is a cluster pair statistic, not evidence for or against an individual ligand–receptor event. In particular, this screen can exclude biologically real longer range signaling.
@@ -81,11 +80,10 @@ flowchart LR
 </div>
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#262626','primaryTextColor':'#e6e6e6','primaryBorderColor':'#6b6b6b','lineColor':'#9a9a9a','fontFamily':'Segoe UI, sans-serif'}}}%%
 flowchart LR
-    A[01 Data prep<br/>filter and normalize] --> B[02 Spatial clustering<br/>PCA, Leiden 0.5<br/>physical neighbor graph]
-    B --> C[03 CCC analysis<br/>LIANA+ and Squidpy<br/>z-score screen]
-    C --> D[04 Tissue plot<br/>clusters on image]
+    A["01 Data prep<br/>filter and normalize"] --> B["02 Spatial clustering<br/>PCA, Leiden 0.5<br/>physical neighbor graph"]
+    B --> C["03 CCC analysis<br/>LIANA+ and Squidpy<br/>z-score screen"]
+    C --> D["04 Tissue plot<br/>clusters on image"]
 ```
 
 | Step | Script | What it does |
